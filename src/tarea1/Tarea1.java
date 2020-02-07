@@ -17,7 +17,7 @@ public class Tarea1 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args)  {
         // TODO code application logic here
         ArrayList<Integer> number_one = new ArrayList<Integer>();
         ArrayList<Integer> number_two = new ArrayList<Integer>();        
@@ -34,30 +34,30 @@ public class Tarea1 {
         int aux=11, aux2=0, aux3=0;       
         multiplicacion(number_one, number_two);  
         long inicio = System.currentTimeMillis();
-        Thread.sleep(2000);
+        
         for (int i = 9; i >= 0; i--) {//9 para lo de 10, 99 para lo de 100, 999 para lo de mil
             aux--;
             int resultado_suma= number_one.get(i)+number_two.get(i);
             suma(resultado_suma,aux,numeros);
         }
-        long fin = System.currentTimeMillis();
-        double tiempo = (double) ((fin - inicio)/1000);
+        long fin = System.currentTimeMillis()-inicio;
+        double tiempo = (double) ((inicio - fin));
         
         System.out.print("La respuesta de la suma es: ");
         for (int i = 0; i < 11; i++) {//Aplica lo mismo que para la línea 33
             System.out.print(numeros[i]);
         }
         System.out.println("");
-        System.out.println("La suma se tardó " + tiempo +" segundos");
+        System.out.println("La suma se tardó " + tiempo +" milisegundos");
     }    
-    static void multiplicacion(ArrayList<Integer> number_one, ArrayList<Integer> number_two)throws InterruptedException{
+    static void multiplicacion(ArrayList<Integer> number_one, ArrayList<Integer> number_two){
         System.out.println(number_one);
         System.out.println(number_two);
         int multiplicacion=0;
         int aux=20, aux2=0;
         int[] numeros = new int[20]; //20 para la multiplicacion de dos números de 10 cifras,200 para números de 100 cifras y 2000 para números de 100 cifras 
         long inicio2 = System.currentTimeMillis();
-        Thread.sleep(2000);      
+             
         for (int i = 9; i >= 0; i--) {//aplica lo mismo que para la línea 38
             aux--;
             aux2=aux;
@@ -67,14 +67,14 @@ public class Tarea1 {
                 aux2--;
             }           
         }
-        long fin2 = System.currentTimeMillis();
-        double tiempo = (double) ((fin2 - inicio2)/1000);
+        long fin2 = System.currentTimeMillis() - inicio2;
+        double tiempo = (double) ((inicio2 - fin2));
         System.out.print("La respuesta de la multiplicación es: ");
         for (int i = 0; i < 20; i++) { //aplica lo mismo que para la línea 58  
             System.out.print(numeros[i]);
         }
         System.out.println("");
-        System.out.println("La multiplicación se tardó " + tiempo +" segundos");
+        System.out.println("La multiplicación se tardó " + tiempo +" milisegundos");
     }
     static void suma(int valor, int aux, int numeros[]){
             int  aux2=aux, aux3=0;     
